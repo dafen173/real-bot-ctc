@@ -2,8 +2,11 @@ const kb = require('./keyboard-buttons')
 
 module.exports = {
     home: [
-        [kb.home.films, kb.home.cinemas],
-        [kb.home.favourite]
+        [kb.home.rate, kb.home.price],
+        [kb.home.sale, kb.home.promo],
+        [kb.home.screen_calc]
+        //[kb.home.favourite],
+        //[kb.home.films, kb.home.cinemas]
     ],
     films: [
         [kb.film.random],

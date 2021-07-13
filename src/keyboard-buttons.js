@@ -2,7 +2,12 @@ module.exports = {
     home: {
         films: 'Сейчас в кино', 
         favourite: 'Избранное',
-        cinemas: 'Кинотеатры'
+        cinemas: 'Кинотеатры',
+        rate: 'Курс безнал и нал',
+        sale: 'Распродажный прайс',
+        price: 'Скачать прайс',
+        promo: 'Акции',
+        screen_calc: 'Рассчитать размер экрана'
     },
     film: {
         random:'Случайный жанр',
