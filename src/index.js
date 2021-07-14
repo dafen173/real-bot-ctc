@@ -54,14 +54,31 @@ bot.on('message', msg => {
     const chatId = helper.getChatId(msg)
 
     switch (msg.text) {
+        case kb.home.rate:
+            bot.sendMessage(chatId, `27.5`)
+            break
+        case kb.home.price:
+            bot.sendMessage(chatId, `Ссылка для скачивания прайса\n 
+                                    http://www.ctccapital.ua/price_a/dealer/CTCCapital2107081715.xls`)
+            break
+        case kb.home.sale:
+            bot.sendMessage(chatId, `Ссылка для скачивания прайса\n 
+                        http://www.ctccapital.ua/price_a/all/CTCCapital_Sale_deadline_30.07.21_inclusive.xls`)
+            break        
+
+
+        case kb.home.screen_calc:
+            bot.sendMessage(chatId, `Выберите формат экрана`, {
+                reply_markup: {
+                    keyboard: keyboard.cinemas
+                }
+            })
+
+
+
         case kb.home.favourite:
             showFavouriteFilms(chatId, msg.from.id)
             break          
-        case kb.home.films:
-            bot.sendMessage(chatId, `Выберите жанр:`, {
-                reply_markup: {keyboard: keyboard.films}
-            })
-            break
         case kb.film.comedy:
             sendFilmByQuery(chatId, {type: 'comedy'})
             break
