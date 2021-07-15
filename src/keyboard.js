@@ -8,6 +8,14 @@ module.exports = {
         //[kb.home.favourite],
         //[kb.home.films, kb.home.cinemas]
     ],
+    screens: [
+        [kb.screen.w16on9],
+        [kb.screen.h16to9],
+        [kb.screen.w16to10],
+        [kb.screen.h16to10],
+        [kb.screen.w21to9],
+        [kb.screen.h21to9]
+    ],
     films: [
         [kb.film.random],
         [kb.film.action, kb.film.comedy],

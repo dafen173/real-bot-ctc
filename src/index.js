@@ -65,14 +65,17 @@ bot.on('message', msg => {
             bot.sendMessage(chatId, `Ссылка для скачивания прайса\n 
                         http://www.ctccapital.ua/price_a/all/CTCCapital_Sale_deadline_30.07.21_inclusive.xls`)
             break        
-
-
+        case kb.home.promo:
+            bot.sendPhoto(chatId, "C:/Work/real-bot-ctc/photos/mf-triangle.png")
+            break
         case kb.home.screen_calc:
-            bot.sendMessage(chatId, `Выберите формат экрана`, {
+            bot.sendMessage(chatId, `Выберите нужную команду`, {
                 reply_markup: {
-                    keyboard: keyboard.cinemas
+                    keyboard: keyboard.screens
                 }
             })
+            break
+
 
 
 
