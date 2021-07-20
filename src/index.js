@@ -75,6 +75,25 @@ bot.on('message', msg => {
                 }
             })
             break
+        
+        
+        case kb.screen.w16on9:
+            bot.sendMessage(chatId, `Укажите ширину в метрах`)
+            break
+        
+        
+        
+            
+        
+        
+        case kb.back:
+            bot.sendMessage(chatId, `Выберите команду для начала работы:`, {
+                reply_markup: {keyboard: keyboard.home}
+            })
+            break
+
+
+
 
 
 
@@ -98,11 +117,7 @@ bot.on('message', msg => {
                 }
             })
             break
-        case kb.back:
-            bot.sendMessage(chatId, `Что хотите посмотреть?`, {
-                reply_markup: {keyboard: keyboard.home}
-            })
-            break
+
     }
 
     if (msg.location) {

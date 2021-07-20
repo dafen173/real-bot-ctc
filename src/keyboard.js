@@ -14,7 +14,8 @@ module.exports = {
         [kb.screen.w16to10],
         [kb.screen.h16to10],
         [kb.screen.w21to9],
-        [kb.screen.h21to9]
+        [kb.screen.h21to9],
+        [kb.back]
     ],
     films: [
         [kb.film.random],
