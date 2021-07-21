@@ -79,6 +79,18 @@ bot.on('message', msg => {
         
         case kb.screen.w16on9:
             bot.sendMessage(chatId, `Укажите ширину в метрах`)
+
+            bot.on('message', msg => {
+                
+                const inputNum = Number(msg.text)
+
+                if (inputNum && inputNum > 0) {
+                    bot.sendMessage(chatId, inputNum)
+                } else {
+                    bot.sendMessage(chatId, 'Введите именно число! Если дробное, то через точку!')
+                }
+            })
+
             break
         
         
