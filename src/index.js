@@ -78,23 +78,25 @@ bot.on('message', msg => {
         
         
         case kb.screen.w16on9:
-            bot.sendMessage(chatId, `Укажите ширину в метрах`)
+            bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)
 
             bot.on('message', msg => {
                 
                 const inputNum = Number(msg.text)
+                const heightFromWidth = Math.round(inputNum / 1.777777777)
+                const diagonal = Math.round(Math.sqrt(Math.pow(inputNum, 2) + Math.pow(heightFromWidth, 2)))
+
+                const answer = `${inputNum} x ${heightFromWidth} см - ширина и высота экрана, формат 16:9\n${diagonal} см - диагональ экрана `
 
                 if (inputNum && inputNum > 0) {
-                    bot.sendMessage(chatId, inputNum)
-                } else {
-                    bot.sendMessage(chatId, 'Введите именно число! Если дробное, то через точку!')
+                    bot.sendMessage(chatId, answer)
+                } 
+                else {
+                    bot.sendMessage(chatId, 'Введите именно положительное целое число!')
                 }
             })
 
             break
-        
-        
-        
             
         
         
