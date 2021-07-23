@@ -88,14 +88,18 @@ bot.on('message', msg => {
 
                 const answer = `${inputNum} x ${heightFromWidth} см - ширина и высота экрана, формат 16:9\n${diagonal} см - диагональ экрана `
 
-                if (inputNum && inputNum > 0) {
-                    bot.sendMessage(chatId, answer)
-                } 
-                else {
-                    bot.sendMessage(chatId, 'Введите именно положительное целое число!')
+               // if (inputNum && inputNum > 0) {
+               //     bot.sendMessage(chatId, answer)
+               // } 
+               // else {           
+               // }
+                switch (msg.text) {
+                    case '222': 
+                        bot.sendMessage(chatId, answer)
+                        break
                 }
-            })
 
+            })
             break
             
         
