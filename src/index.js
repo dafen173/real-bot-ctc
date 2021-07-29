@@ -78,8 +78,36 @@ bot.on('message', msg => {
         
         
         case kb.screen.w16on9:
-            bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)
+            bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)      
+            
+            const handler = (msg) => {
+                
+                const inputNum = Number(msg.text)
+                const heightFromWidth = Math.round(inputNum / 1.777777777)
+                const diagonal = Math.round(Math.sqrt(Math.pow(inputNum, 2) + Math.pow(heightFromWidth, 2)))
 
+                const answer = `${inputNum} x ${heightFromWidth} см - ширина и высота экрана, формат 16:9\n${diagonal} см - диагональ экрана `
+
+                if (inputNum && inputNum > 0) {
+                    bot.sendMessage(chatId, answer)                         
+                } 
+                else {           
+                    bot.removeListener('message', handler);
+                }
+            }
+            
+            bot.on('message', handler)
+            break
+            
+
+
+
+
+
+
+            /*
+            case kb.screen.w16on9:
+            bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)      
             bot.on('message', msg => {
                 
                 const inputNum = Number(msg.text)
@@ -88,20 +116,20 @@ bot.on('message', msg => {
 
                 const answer = `${inputNum} x ${heightFromWidth} см - ширина и высота экрана, формат 16:9\n${diagonal} см - диагональ экрана `
 
-               // if (inputNum && inputNum > 0) {
-               //     bot.sendMessage(chatId, answer)
-               // } 
-               // else {           
-               // }
-                switch (msg.text) {
-                    case '222': 
-                        bot.sendMessage(chatId, answer)
-                        break
+                if (inputNum && inputNum > 0) {
+                    bot.sendMessage(chatId, answer)                         
+                } 
+                else {           
+                    bot.removeListener('message');
                 }
+                
 
             })
             break
-            
+
+            */
+
+
         
         
         case kb.back:
