@@ -1,4 +1,6 @@
 
+//web: node ./src/index.js
+
 
 //cd C:\Program Files\MongoDB\Server\3.6\bin
 
