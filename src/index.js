@@ -1,5 +1,7 @@
 // ctc-bot
 
+require('dotenv').config()
+
 const TelegramBot = require('node-telegram-bot-api')
 const mongoose = require('mongoose')
 const geolib = require('geolib')
@@ -45,9 +47,15 @@ const ACTION_TYPE = {
 
 
 
-const bot = new TelegramBot (config.TOKEN, {
+//const bot = new TelegramBot (config.TOKEN, {
+//    polling: true
+//})
+
+
+const bot = new TelegramBot (process.env.BOT_TOKEN, {
     polling: true
 })
+
 
 bot.on('message', msg => {
     //console.log('Working', msg.from.first_name)
