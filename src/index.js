@@ -66,7 +66,7 @@ bot.on('message', msg => {
                         http://www.ctccapital.ua/price_a/all/CTCCapital_Sale_deadline_30.07.21_inclusive.xls`)
             break        
         case kb.home.promo:
-            bot.sendPhoto(chatId, "C:/Work/real-bot-ctc/photos/mf-triangle.png")
+            bot.sendPhoto(chatId, "D:/kottans/real-bot-ctc/real-bot-ctc/photos/mf-triangle.png")
             break
         case kb.home.screen_calc:
             bot.sendMessage(chatId, `Выберите нужную команду`, {
