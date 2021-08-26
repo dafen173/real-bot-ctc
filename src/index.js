@@ -1,6 +1,8 @@
 // ctc-bot
 
-const TelegramBot = require('node-telegram-bot-api');
+require('dotenv').config()
+
+const TelegramBot = require('node-telegram-bot-api')
 const mongoose = require('mongoose')
 const geolib = require('geolib')
 const _ = require('lodash')
@@ -45,9 +47,15 @@ const ACTION_TYPE = {
 
 
 
-const bot = new TelegramBot (config.TOKEN, {
+//const bot = new TelegramBot (config.TOKEN, {
+//    polling: true
+//})
+
+
+const bot = new TelegramBot (process.env.BOT_TOKEN, {
     polling: true
 })
+
 
 bot.on('message', msg => {
     //console.log('Working', msg.from.first_name)
@@ -55,7 +63,7 @@ bot.on('message', msg => {
 
     switch (msg.text) {
         case kb.home.rate:
-            bot.sendMessage(chatId, `27.5`)
+            bot.sendMessage(chatId, config.EXCHANGE_RATE)
             break
         case kb.home.price:
             bot.sendMessage(chatId, `Ссылка для скачивания прайса\n 

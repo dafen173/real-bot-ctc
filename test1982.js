@@ -1,8 +1,18 @@
 
+//web: node ./src/index.js
+
 
 //cd C:\Program Files\MongoDB\Server\3.6\bin
 
 //http://www.avscreen.com.ua/images/manual.png
+
+
+
+//new token
+//1860414673:AAEV7oeJWq9LC6gYpw5jcZN4DfC_uPU44Dg
+
+//old token
+//1860414673:AAFo5kV5d2bZQgVSUuSUpE9UgAqfsCcqcrI
 
 
 
