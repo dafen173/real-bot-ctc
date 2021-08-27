@@ -90,13 +90,22 @@ bot.on('message', msg => {
             
             const handler = (msg) => {
                 
-                const inputNum = Number(msg.text)
-                const heightFromWidth = Math.round(inputNum / 1.777777777)
-                const diagonal = Math.round(Math.sqrt(Math.pow(inputNum, 2) + Math.pow(heightFromWidth, 2)))
+                const inputWidth = Number(msg.text)
+                const heightFromWidth = Math.round(inputWidth / 1.777777777)
+                const diagonal = Math.round(Math.sqrt(Math.pow(inputWidth, 2) + Math.pow(heightFromWidth, 2)))
+                const inputWidthInInches = inputWidth / 2.54
+                const heightFromWidthInInches = heightFromWidth / 2.54
+                const diagonalInInches = diagonal / 2.54 
+                
 
-                const answer = `${inputNum} x ${heightFromWidth} см - ширина и высота экрана, формат 16:9\n${diagonal} см - диагональ экрана `
+                const answer = `${inputWidth} x ${heightFromWidth} см - ширина и высота экрана, формат 16:9
+                                \n${diagonal} см - диагональ экрана
+                                \n `
+                                
 
-                if (inputNum && inputNum > 0) {
+
+
+                if (inputWidth && inputWidth > 0) {
                     bot.sendMessage(chatId, answer)                         
                 } 
                 else {           
