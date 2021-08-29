@@ -60,6 +60,11 @@ const bot = new TelegramBot (process.env.BOT_TOKEN, {
 bot.on('message', msg => {
     //console.log('Working', msg.from.first_name)
     const chatId = helper.getChatId(msg)
+    const input = Number(msg.text)
+    const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(otherSideFromInput, 2)))
+    const inputInInches = input / 2.54
+    const sideFromInputInInches = otherSideFromInput / 2.54
+    const diagonalInInches = diagonal / 2.54 
 
     switch (msg.text) {
         case kb.home.rate:
@@ -83,29 +88,18 @@ bot.on('message', msg => {
                 }
             })
             break
-        
-        
         case kb.screen.w16on9:
             bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)      
             
             const handler = (msg) => {
-                
-                const inputWidth = Number(msg.text)
-                const heightFromWidth = Math.round(inputWidth / 1.777777777)
-                const diagonal = Math.round(Math.sqrt(Math.pow(inputWidth, 2) + Math.pow(heightFromWidth, 2)))
-                const inputWidthInInches = inputWidth / 2.54
-                const heightFromWidthInInches = heightFromWidth / 2.54
-                const diagonalInInches = diagonal / 2.54 
-                
-
-                const answer = `${inputWidth} x ${heightFromWidth} см - ширина и высота экрана, формат 16:9
-                                \n${diagonal} см - диагональ экрана
-                                \n `
                                 
-
-
-
-                if (inputWidth && inputWidth > 0) {
+                const sideFromInput = Math.round(input / 1.777777777)  
+                const answer = `${input} x ${sideFromInput} см - ширина и высота экрана, формат 16:9
+                                \n${diagonal} см - диагональ экрана
+                                \n${inputInInches} x ${sideFromInputInInches} дюймов - ширина и высота экрана, формат 16:9
+                                \n${diagonalInInches} дюймов - диагональ экрана`                             
+                                
+                if (input && input > 0) {
                     bot.sendMessage(chatId, answer)                         
                 } 
                 else {           
