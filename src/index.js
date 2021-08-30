@@ -60,12 +60,6 @@ const bot = new TelegramBot (process.env.BOT_TOKEN, {
 bot.on('message', msg => {
     //console.log('Working', msg.from.first_name)
     const chatId = helper.getChatId(msg)
-    const input = Number(msg.text)
-    let sideFromInput
-    const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
-    const inputInInches = input / 2.54
-    const sideFromInputInInches = sideFromInput / 2.54
-    const diagonalInInches = diagonal / 2.54 
 
     switch (msg.text) {
         case kb.home.rate:
@@ -94,7 +88,12 @@ bot.on('message', msg => {
             
             const handler = (msg) => {
                                 
-                sideFromInput = Math.round(input / 1.777777777)  
+                const sideFromInput = Math.round(input / 1.777777777)  
+                const input = Number(msg.text)
+                const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
+                const inputInInches = input / 2.54
+                const sideFromInputInInches = sideFromInput / 2.54
+                const diagonalInInches = diagonal / 2.54 
                 const answer = `${input} x ${sideFromInput} см - ширина и высота экрана, формат 16:9
                                 \n${diagonal} см - диагональ экрана
                                 \n${inputInInches} x ${sideFromInputInInches} дюймов - ширина и высота экрана, формат 16:9
@@ -186,9 +185,9 @@ bot.on('message', msg => {
 
 
 
-bot.on("polling_error", (err) => console.log(err));
+bot.on("polling_error", (err) => console.log(err))
 
-bot.on("error", (err) => console.log(err));
+bot.on("error", (err) => console.log(err))
 
 
 bot.onText(/\/start/, msg => {
@@ -349,6 +348,10 @@ bot.on('inline_query', query => {
 
 
 //===========================================
+
+
+
+
 
 
 function sendFilmByQuery(chatId, query) {
