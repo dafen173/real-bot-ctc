@@ -61,9 +61,9 @@ bot.on('message', msg => {
     //console.log('Working', msg.from.first_name)
     const chatId = helper.getChatId(msg)
     const input = Number(msg.text)
-    const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(otherSideFromInput, 2)))
+    const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
     const inputInInches = input / 2.54
-    const sideFromInputInInches = otherSideFromInput / 2.54
+    const sideFromInputInInches = sideFromInput / 2.54
     const diagonalInInches = diagonal / 2.54 
 
     switch (msg.text) {
