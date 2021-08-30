@@ -188,7 +188,7 @@ bot.on('message', msg => {
 
 bot.on("polling_error", (err) => console.log(err));
 
-
+bot.on("error", (err) => console.log(err));
 
 
 bot.onText(/\/start/, msg => {
