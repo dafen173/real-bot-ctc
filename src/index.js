@@ -184,6 +184,12 @@ bot.on('message', msg => {
 })
 
 
+
+bot.on("polling_error", (err) => console.log(err));
+
+
+
+
 bot.onText(/\/start/, msg => {
 
     const text = `Здраствуйте, ${msg.from.first_name}\nВыберите команду для начала работы: `
