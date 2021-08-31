@@ -87,9 +87,8 @@ bot.on('message', msg => {
             bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)      
             
             const handler = (msg) => {
-                                
+                const input = Number(msg.text)                
                 const sideFromInput = Math.round(input / 1.777777777)  
-                const input = Number(msg.text)
                 const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
                 const inputInInches = input / 2.54
                 const sideFromInputInInches = sideFromInput / 2.54
@@ -109,12 +108,6 @@ bot.on('message', msg => {
             
             bot.on('message', handler)
             break
-            
-
-
-
-
-
 
             /*
             case kb.screen.w16on9:
