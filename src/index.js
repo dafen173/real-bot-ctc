@@ -90,9 +90,9 @@ bot.on('message', msg => {
                 const input = Number(msg.text)                
                 const sideFromInput = Math.round(input / 1.777777777)  
                 const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
-                const inputInInches = input / 2.54
-                const sideFromInputInInches = sideFromInput / 2.54
-                const diagonalInInches = diagonal / 2.54 
+                const inputInInches = Math.pow(input / 2.54)
+                const sideFromInputInInches = Math.pow(sideFromInput / 2.54)
+                const diagonalInInches = Math.pow(diagonal / 2.54)
                 const answer = `${input} x ${sideFromInput} см - ширина и высота экрана, формат 16:9
                                 \n${diagonal} см - диагональ экрана
                                 \n${inputInInches} x ${sideFromInputInInches} дюймов - ширина и высота экрана, формат 16:9
