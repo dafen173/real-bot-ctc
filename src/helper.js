@@ -42,6 +42,11 @@ const handler = (msg, aspectRatio) => {
 
 /*
 
+*/
+
+
+
+
 function screenCalculation (msg, aspectRatio, howSideInput) {
     const input = msg;    
     
@@ -70,8 +75,8 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
         return answer
     } else if (howSideInput === 'diagonalInput') {
 
-        const widthFromInput = Math.round(Math.sqrt(Math.pow(input, 2) * Math.pow(aspectRatio, 2) / 2))
-        const heigtFromWidth = Math.round(input / aspectRatio) 
+        const widthFromInput = Math.round(Math.sqrt(Math.pow(input, 2) * Math.pow(aspectRatio, 2) / (Math.pow(aspectRatio, 2) + 1)))
+        const heigtFromWidth = Math.round(widthFromInput / aspectRatio) 
         
         const diagonalInInches = Math.round(input / 2.54)
         const widthFromInputInInches = Math.round(widthFromInput / 2.54)
@@ -91,11 +96,6 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
 }
 
 screenCalculation (381, 1.77777, 'diagonalInput')
-*/
-
-
-
-
 
 
 
