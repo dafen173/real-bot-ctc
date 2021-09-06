@@ -112,7 +112,7 @@ bot.on('message', msg => {
             break
             */
 
-            const input = Number(msg.text)  
+            
             screenCalculation (input, 1.77777, 'diagonalInput')
             
 
@@ -435,9 +435,10 @@ function sendCinemasByQuery (userId, query) {
 
 
 
-function screenCalculation (msg, aspectRatio, howSideInput) {
+function screenCalculation (input, aspectRatio, howSideInput) {
     //const input = msg;  
-    //const input = Number(msg.text)    
+    const input = Number(msg.text)    
+    
     
     if (howSideInput === 'width') {
 
