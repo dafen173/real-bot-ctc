@@ -60,6 +60,7 @@ const bot = new TelegramBot (process.env.BOT_TOKEN, {
 bot.on('message', msg => {
     //console.log('Working', msg.from.first_name)
     const chatId = helper.getChatId(msg)
+    const input = Number(msg.text)  
 
     switch (msg.text) {
         case kb.home.rate:
@@ -436,7 +437,7 @@ function sendCinemasByQuery (userId, query) {
 
 function screenCalculation (msg, aspectRatio, howSideInput) {
     //const input = msg;  
-    const input = Number(msg.text)    
+    //const input = Number(msg.text)    
     
     if (howSideInput === 'width') {
 
