@@ -60,7 +60,7 @@ const bot = new TelegramBot (process.env.BOT_TOKEN, {
 bot.on('message', msg => {
     //console.log('Working', msg.from.first_name)
     const chatId = helper.getChatId(msg)
-    const input = Number(msg.text)  
+    
 
     switch (msg.text) {
         case kb.home.rate:
@@ -112,7 +112,7 @@ bot.on('message', msg => {
             break
             */
 
-
+            const input = Number(msg.text)  
             screenCalculation (input, 1.77777, 'diagonalInput')
             
 
