@@ -451,7 +451,7 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
                         \n${diagonal} см - диагональ экрана
                         \n${inputInInches} x ${sideFromInputInInches} дюймов - ширина и высота экрана, формат 16:9
                         \n${diagonalInInches} дюймов - диагональ экрана`                                              
-        //return answer
+        return answer
     } else if (howSideInput === 'height') {
         const sideFromInput = Math.round(input * aspectRatio)  
         const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
@@ -462,7 +462,7 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
                         \n${diagonal} см - диагональ экрана
                         \n${sideFromInputInInches} x ${inputInInches} дюймов - ширина и высота экрана, формат 16:9
                         \n${diagonalInInches} дюймов - диагональ экрана`                                                
-        //return answer
+        return answer
     } else if (howSideInput === 'diagonalInput') {
 
         const widthFromInput = Math.round(Math.sqrt(Math.pow(input, 2) * Math.pow(aspectRatio, 2) / (Math.pow(aspectRatio, 2) + 1)))
@@ -476,7 +476,7 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
                         \n${input} см - диагональ экрана
                         \n${widthFromInputInInches} x ${heigtFromWidthInInches} дюймов - ширина и высота экрана, формат 16:9
                         \n${diagonalInInches} дюймов - диагональ экрана`                                                
-       // return answer
+        return answer
     } else {
         console.log('Введите одно из трех значений: width или height, или diagonalInput')
     }
