@@ -113,7 +113,7 @@ bot.on('message', msg => {
             */
 
             
-            screenCalculation (input, 1.77777, 'diagonalInput')
+            screenCalculation (msg, 1.77777, 'diagonalInput')
             
 
         bot.on('message', screenCalculation)
