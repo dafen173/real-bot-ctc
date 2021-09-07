@@ -438,7 +438,7 @@ function sendCinemasByQuery (userId, query) {
 function screenCalculation (msg, aspectRatio, howSideInput) {
     //const input = msg;  
     const input = Number(msg.text)    
-    
+    const chatId = helper.getChatId(msg)
     
     if (howSideInput === 'width') {
 
