@@ -435,7 +435,7 @@ function sendCinemasByQuery (userId, query) {
 
 
 
-function screenCalculation (input, aspectRatio, howSideInput) {
+function screenCalculation (msg, aspectRatio, howSideInput) {
     //const input = msg;  
     const input = Number(msg.text)    
     
