@@ -47,15 +47,16 @@ const ACTION_TYPE = {
 
 
 
-//const bot = new TelegramBot (config.TOKEN, {
-//    polling: true
-//})
-
-
-const bot = new TelegramBot (process.env.BOT_TOKEN, {
+const bot = new TelegramBot (config.TOKEN, {
     polling: true
 })
 
+
+/*
+const bot = new TelegramBot (process.env.BOT_TOKEN, {
+    polling: true
+})
+*/
 
 bot.on('message', msg => {
     //console.log('Working', msg.from.first_name)
