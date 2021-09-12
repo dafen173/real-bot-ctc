@@ -47,19 +47,21 @@ const ACTION_TYPE = {
 
 
 
-//const bot = new TelegramBot (config.TOKEN, {
-//    polling: true
-//})
-
-
-const bot = new TelegramBot (process.env.BOT_TOKEN, {
+const bot = new TelegramBot (config.TOKEN, {
     polling: true
 })
 
 
+/*
+const bot = new TelegramBot (process.env.BOT_TOKEN, {
+    polling: true
+})
+*/
+
 bot.on('message', msg => {
     //console.log('Working', msg.from.first_name)
     const chatId = helper.getChatId(msg)
+    
 
     switch (msg.text) {
         case kb.home.rate:
@@ -86,7 +88,8 @@ bot.on('message', msg => {
         case kb.screen.w16on9:
             bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)      
             
-            const handler = (msg) => {
+           /* 
+           const handler = (msg) => {
                 const input = Number(msg.text)                
                 const sideFromInput = Math.round(input / 1.777777777)  
                 const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
@@ -108,32 +111,14 @@ bot.on('message', msg => {
             
             bot.on('message', handler)
             break
-
-            /*
-            case kb.screen.w16on9:
-            bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)      
-            bot.on('message', msg => {
-                
-                const inputNum = Number(msg.text)
-                const heightFromWidth = Math.round(inputNum / 1.777777777)
-                const diagonal = Math.round(Math.sqrt(Math.pow(inputNum, 2) + Math.pow(heightFromWidth, 2)))
-
-                const answer = `${inputNum} x ${heightFromWidth} см - ширина и высота экрана, формат 16:9\n${diagonal} см - диагональ экрана `
-
-                if (inputNum && inputNum > 0) {
-                    bot.sendMessage(chatId, answer)                         
-                } 
-                else {           
-                    bot.removeListener('message');
-                }
-                
-
-            })
-            break
-
             */
 
+            
+            screenCalculation (msg, 1.77777, 'diagonalInput')
+            
 
+        bot.on('message', screenCalculation)
+        break
         
         
         case kb.back:
@@ -344,9 +329,6 @@ bot.on('inline_query', query => {
 
 
 
-
-
-
 function sendFilmByQuery(chatId, query) {
     Film.find(query).then(films => {
         //console.log(films)
@@ -452,4 +434,91 @@ function sendCinemasByQuery (userId, query) {
     })
 }
 
+
+
+function screenCalculation (msg, aspectRatio, howSideInput) {
+    //const input = msg;  
+    const input = Number(msg.text)    
+    const chatId = helper.getChatId(msg)
+    
+    if (howSideInput === 'width') {
+
+        const sideFromInput = Math.round(input / aspectRatio) 
+        const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
+        const inputInInches = Math.round(input / 2.54)
+        const sideFromInputInInches = Math.round(sideFromInput / 2.54)
+        const diagonalInInches = Math.round(diagonal / 2.54)
+        const answer = `${input} x ${sideFromInput} см - ширина и высота экрана, формат 16:9
+                        \n${diagonal} см - диагональ экрана
+                        \n${inputInInches} x ${sideFromInputInInches} дюймов - ширина и высота экрана, формат 16:9
+                        \n${diagonalInInches} дюймов - диагональ экрана`                                              
+        
+        //return answer
+
+        if (input && input > 0) {
+            bot.sendMessage(chatId, answer)                         
+        } 
+        else {           
+            bot.removeListener('message', screenCalculation);
+        }
+
+    } else if (howSideInput === 'height') {
+        const sideFromInput = Math.round(input * aspectRatio)  
+        const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
+        const inputInInches = Math.round(input / 2.54)
+        const sideFromInputInInches = Math.round(sideFromInput / 2.54)
+        const diagonalInInches = Math.round(diagonal / 2.54)
+        const answer = `${sideFromInput} x ${input} см - ширина и высота экрана, формат 16:9
+                        \n${diagonal} см - диагональ экрана
+                        \n${sideFromInputInInches} x ${inputInInches} дюймов - ширина и высота экрана, формат 16:9
+                        \n${diagonalInInches} дюймов - диагональ экрана`                                                
+        //return answer
+
+        if (input && input > 0) {
+            bot.sendMessage(chatId, answer)                         
+        } 
+        else {           
+            bot.removeListener('message', screenCalculation);
+        }
+
+    } else if (howSideInput === 'diagonalInput') {
+
+        const widthFromInput = Math.round(Math.sqrt(Math.pow(input, 2) * Math.pow(aspectRatio, 2) / (Math.pow(aspectRatio, 2) + 1)))
+        const heigtFromWidth = Math.round(widthFromInput / aspectRatio) 
+        
+        const diagonalInInches = Math.round(input / 2.54)
+        const widthFromInputInInches = Math.round(widthFromInput / 2.54)
+        const heigtFromWidthInInches = Math.round(heigtFromWidth / 2.54)
+
+        const answer = `${widthFromInput} x ${heigtFromWidth} см - ширина и высота экрана, формат 16:9
+                        \n${input} см - диагональ экрана
+                        \n${widthFromInputInInches} x ${heigtFromWidthInInches} дюймов - ширина и высота экрана, формат 16:9
+                        \n${diagonalInInches} дюймов - диагональ экрана`                                                
+        //return answer
+
+        if (input && input > 0) {
+            bot.sendMessage(chatId, answer)                         
+        } 
+        else {           
+            bot.removeListener('message', screenCalculation);
+        }
+
+    } else {
+        console.log('Введите одно из трех значений: width или height, или diagonalInput')
+    }
+
+
+/*
+    if (input && input > 0) {
+        bot.sendMessage(chatId, answer)                         
+    } 
+    else {           
+        bot.removeListener('message', screenCalculation);
+    }
+*/
+
+
+}
+
+//console.log(screenCalculation (msg, 1.77777, 'diagonalInput'))
 
