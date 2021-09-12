@@ -16,7 +16,7 @@ module.exports = {
 
 //=======================================================================================================
 
-
+/*
 const handler = (msg, aspectRatio) => {
     const input = Number(msg.text)                
     const sideFromInput = Math.round(input / aspectRatio)  
@@ -37,19 +37,14 @@ const handler = (msg, aspectRatio) => {
     }
 }
 
-
-
-
-/*
-
 */
 
 
-
-
+/*
 function screenCalculation (msg, aspectRatio, howSideInput) {
-    const input = msg;    
-    
+    //const input = msg;    
+    const input = Number(msg.text)
+
     if (howSideInput === 'width') {
 
         const sideFromInput = Math.round(input / aspectRatio) 
@@ -96,6 +91,8 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
 }
 
 screenCalculation (381, 1.77777, 'diagonalInput')
+
+*/
 
 
 
