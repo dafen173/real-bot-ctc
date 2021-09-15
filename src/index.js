@@ -114,7 +114,7 @@ bot.on('message', msg => {
             */
 
             
-            screenCalculation (msg, 1.77777, 'diagonalInput')
+            screenCalculation (msg, 1.77777, 'width')
             
 
         bot.on('message', screenCalculation)
@@ -505,7 +505,11 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
 
     } else {
         console.log('Введите одно из трех значений: width или height, или diagonalInput')
+        console.log(howSideInput)
+        console.log(msg)
     }
+}
+ 
 
 
 /*
@@ -518,7 +522,12 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
 */
 
 
-}
+
 
 //console.log(screenCalculation (msg, 1.77777, 'diagonalInput'))
 
+
+
+ /*   
+  screenCalculation (msg, 1.77777, 'width') 
+  */
