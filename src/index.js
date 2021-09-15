@@ -16,7 +16,7 @@ const database = require('../database.json')
 
 helper.logStart()
 
-mongoose.connect(config.DB_URL, {
+/* mongoose.connect(config.DB_URL, {
     //useMongoClient: true
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -30,7 +30,7 @@ require('./models/user.model')
 
 const Film = mongoose.model('films')
 const Cinema = mongoose.model('cinemas')
-const User = mongoose.model('users')
+const User = mongoose.model('users') */
 
 //database.films.forEach(f => new Film(f).save().catch(e => console.log(e)))
 //database.cinemas.forEach(c => new Cinema(c).save().catch(e => console.log(e)))
