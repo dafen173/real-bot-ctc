@@ -23,11 +23,9 @@ helper.logStart()
 })
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.log(err))
-
 require('./models/film.model')
 require('./models/cinema.model')
 require('./models/user.model')
-
 const Film = mongoose.model('films')
 const Cinema = mongoose.model('cinemas')
 const User = mongoose.model('users') */
@@ -514,7 +512,6 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
     const chatId = helper.getChatId(msg)
     
     if (howSideInput === 'width') {
-
         const sideFromInput = Math.round(input / aspectRatio) 
         const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
         const inputInInches = Math.round(input / 2.54)
@@ -526,14 +523,12 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
                         \n${diagonalInInches} дюймов - диагональ экрана`                                              
         
         //return answer
-
         if (input && input > 0) {
             bot.sendMessage(chatId, answer)                         
         } 
         else {           
             bot.removeListener('message', screenCalculation());
         }
-
     } else if (howSideInput === 'height') {
         const sideFromInput = Math.round(input * aspectRatio)  
         const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
@@ -545,36 +540,30 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
                         \n${sideFromInputInInches} x ${inputInInches} дюймов - ширина и высота экрана, формат 16:9
                         \n${diagonalInInches} дюймов - диагональ экрана`                                                
         //return answer
-
         if (input && input > 0) {
             bot.sendMessage(chatId, answer)                         
         } 
         else {           
             bot.removeListener('message', screenCalculation());
         }
-
     } else if (howSideInput === 'diagonalInput') {
-
         const widthFromInput = Math.round(Math.sqrt(Math.pow(input, 2) * Math.pow(aspectRatio, 2) / (Math.pow(aspectRatio, 2) + 1)))
         const heigtFromWidth = Math.round(widthFromInput / aspectRatio) 
         
         const diagonalInInches = Math.round(input / 2.54)
         const widthFromInputInInches = Math.round(widthFromInput / 2.54)
         const heigtFromWidthInInches = Math.round(heigtFromWidth / 2.54)
-
         const answer = `${widthFromInput} x ${heigtFromWidth} см - ширина и высота экрана, формат 16:9
                         \n${input} см - диагональ экрана
                         \n${widthFromInputInInches} x ${heigtFromWidthInInches} дюймов - ширина и высота экрана, формат 16:9
                         \n${diagonalInInches} дюймов - диагональ экрана`                                                
         //return answer
-
         if (input && input > 0) {
             bot.sendMessage(chatId, answer)                         
         } 
         else {           
             bot.removeListener('message', screenCalculation());
         }
-
     } else {
         console.log('Введите одно из трех значений: width или height, или diagonalInput')
         console.log(howSideInput)
