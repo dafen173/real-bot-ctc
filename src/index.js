@@ -87,18 +87,26 @@ bot.on('message', msg => {
             bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)  
 
             //const handler23 = screenCalculation(msg, 1.7777, 'width')
-            const handler23 = test(msg, 55555555)
 
 
-            //handler23
+            /* function test(msg, param) {
+                console.log(msg.text + param)
+            }
+            const handler23 = test(msg, 777) 
+            bot.on('message', handler23) */
 
-            bot.on('message', handler23)
+            function test23() {
+                console.log(msg.text + 1000000)
+                }
+            
+            //const handler23 = 'yoooooooooooooooo'
+            /* bot.on('message', msg => {console.log(msg.text + handler23
+                     + 1000000)}) */
+            bot.on('message', test23)
 
-           /*  if (!Number(msg.text) && !Number(msg.text) > 0) {
+            /*  if (!Number(msg.text) && !Number(msg.text) > 0) {
                 bot.removeListener('message', handler23)
             } */
-
-            
 
             /* const handler23 = (msg) => {
                 const input = Number(msg.text)                
@@ -520,9 +528,7 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
 
 
 
-function test (msg, param) {
-    console.log(msg.text + param)
-}
+
 
 
 
