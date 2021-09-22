@@ -98,15 +98,21 @@ bot.on('message', msg => {
                
             const handler23 = (msg) => {
                 
-                screenCalculation(msg, 1.77777, 'width')
-                //const input = Number(msg.text)                                                                       
+                //screenCalculation(msg, 1.77777, 'width')               
+                
                 if (Number(msg.text) && Number(msg.text) > 0) {
-                    console.log('okkkkkk')                       
-                } 
-                else {           
+                    screenCalculation(msg, 1.77777, 'width')
+                }
+
+                /* if (!Number(msg.text) || Number(msg.text) <= 0) {
                     bot.removeListener('message', handler23);
+                    //bot.addEventListener('message', handler23) 
+                    console.log('yyyyoooooooooooo')                     
+                }  */
+                else {           
+                    //bot.removeListener('message', handler23)
                     //console.log('REALLLLLLokkkkkk') 
-                } 
+                }  
             }
 
             //bot.on('message', msg => {screenCalculation(msg, 1.77777, 'width')}) 
