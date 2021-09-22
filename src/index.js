@@ -60,7 +60,8 @@ bot.on('message', msg => {
     //console.log('Working', msg.from.first_name)
     const chatId = helper.getChatId(msg)
      
-    screenCalculation (msg)
+    //screenCalculation (msg)
+
 
 
     switch (msg.text) {
@@ -87,22 +88,34 @@ bot.on('message', msg => {
             break
         case kb.screen.w16on9:
             bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)  
-            
-            //bot.on('message', screenCalculation)
-            
-            
-            
-            //const handler23 = screenCalculation(msg, 1.7777, 'width')
-
-
-            /* function test(msg, param) {
-                console.log(msg.text + param)
+                       
+            /* function test(param1, param2) {
+                console.log(param1.text + param2)
+            }  */        
+            /* const handler23 = function(msg){
+                test(msg, 777) 
+            }  */            
+               
+            const handler23 = (msg) => {
+                
+                screenCalculation(msg, 1.77777, 'width')
+                //const input = Number(msg.text)                                                                       
+                if (Number(msg.text) && Number(msg.text) > 0) {
+                    console.log('okkkkkk')                       
+                } 
+                else {           
+                    bot.removeListener('message', handler23);
+                    //console.log('REALLLLLLokkkkkk') 
+                } 
             }
-            const handler23 = test(msg, 777) 
-            bot.on('message', handler23) */
-                      
-           
-     
+
+            //bot.on('message', msg => {screenCalculation(msg, 1.77777, 'width')}) 
+            bot.on('message', handler23) 
+
+            /* if (Number(msg.text) < 0) {           
+                bot.removeListener('message', msg => {screenCalculation(msg, 1.77777, 'width')});
+                console.log('tttttttttttttttttt')
+            }   */
 
             /* const handler23 = (msg) => {
                 const input = Number(msg.text)                
@@ -449,13 +462,11 @@ function sendCinemasByQuery (userId, query) {
 
 
 
-function screenCalculation (msg) {
+function screenCalculation (msg, aspectRatio, howSideInput) {
     const input = Number(msg.text)    
     const chatId = helper.getChatId(msg)
     
-    if (msg.text === kb.screen.w16on9) {
-
-        console.log('yyyooooooooooooooooooooooooo')
+    if (howSideInput === 'width') {
         const sideFromInput = Math.round(input / aspectRatio) 
         const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
         const inputInInches = Math.round(input / 2.54)
@@ -465,16 +476,15 @@ function screenCalculation (msg) {
                         \n${diagonal} см - диагональ экрана
                         \n${inputInInches} x ${sideFromInputInInches} дюймов - ширина и высота экрана, формат 16:9
                         \n${diagonalInInches} дюймов - диагональ экрана`                                              
-        //console.log(answer)
         
-      /*    if (input && input > 0) {
+        if (input && input > 0) {
             bot.sendMessage(chatId, answer)                         
         } 
-        else {           
-            bot.removeListener('message', screenCalculation(msg, aspectRatio, howSideInput));
+        /* else {           
+            bot.removeListener('message', screenCalculation);
         }   */
 
-    } /* else if (howSideInput === 'height') {
+    } else if (howSideInput === 'height') {
         const sideFromInput = Math.round(input * aspectRatio)  
         const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
         const inputInInches = Math.round(input / 2.54)
@@ -490,7 +500,7 @@ function screenCalculation (msg) {
             bot.sendMessage(chatId, answer)                         
         } 
         else {           
-            bot.removeListener('message', screenCalculation(msg, aspectRatio, howSideInput));
+            bot.removeListener('message', screenCalculation);
         }  
 
     } else if (howSideInput === 'diagonalInput') {
@@ -506,22 +516,20 @@ function screenCalculation (msg) {
                         \n${input} см - диагональ экрана
                         \n${widthFromInputInInches} x ${heigtFromWidthInInches} дюймов - ширина и высота экрана, формат 16:9
                         \n${diagonalInInches} дюймов - диагональ экрана`                                                
-        //return answer
 
         if (input && input > 0) {
             bot.sendMessage(chatId, answer)                         
         } 
         else {           
-            bot.removeListener('message', screenCalculation(msg, aspectRatio, howSideInput));
+            bot.removeListener('message', screenCalculation);
         } 
 
     } else {
         console.log('Введите одно из трех значений: width или height, или diagonalInput')
-        console.log(howSideInput)
-        console.log(msg)
-    } */
+        //console.log(howSideInput)
+        //console.log(msg)
+    }
 }
-
 
 
 
