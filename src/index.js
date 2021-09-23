@@ -103,14 +103,13 @@ bot.on('message', msg => {
                 if (Number(msg.text) && Number(msg.text) > 0) {
                     screenCalculation(msg, 1.77777, 'width')
                 }
-
                 /* if (!Number(msg.text) || Number(msg.text) <= 0) {
                     bot.removeListener('message', handler23);
                     //bot.addEventListener('message', handler23) 
                     console.log('yyyyoooooooooooo')                     
                 }  */
-                else {           
-                    //bot.removeListener('message', handler23)
+                if (msg.text === kb.back) {           
+                    bot.removeListener('message', handler23)
                     //console.log('REALLLLLLokkkkkk') 
                 }  
             }
