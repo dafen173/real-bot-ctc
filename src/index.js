@@ -103,15 +103,20 @@ bot.on('message', msg => {
                 if (Number(msg.text) && Number(msg.text) > 0) {
                     screenCalculation(msg, 1.77777, 'width')
                 }
-
                 /* if (!Number(msg.text) || Number(msg.text) <= 0) {
                     bot.removeListener('message', handler23);
                     //bot.addEventListener('message', handler23) 
                     console.log('yyyyoooooooooooo')                     
                 }  */
+<<<<<<< HEAD
                 else {   
                             
                     bot.removeListener('message', handler23)
+||||||| merged common ancestors
+                else {           
+                    //bot.removeListener('message', handler23)
+
+
                     //console.log('REALLLLLLokkkkkk') 
                     //msg.text = kb.screen.w16on9
                     bot.sendMessage(chatId, `Выберите команду для начала работы:`, {
