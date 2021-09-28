@@ -109,9 +109,14 @@ bot.on('message', msg => {
                     //bot.addEventListener('message', handler23) 
                     console.log('yyyyoooooooooooo')                     
                 }  */
-                else {           
-                    //bot.removeListener('message', handler23)
+                else {   
+                            
+                    bot.removeListener('message', handler23)
                     //console.log('REALLLLLLokkkkkk') 
+                    //msg.text = kb.screen.w16on9
+                    bot.sendMessage(chatId, `Выберите команду для начала работы:`, {
+                        reply_markup: {keyboard: keyboard.home}
+                    })
                 }  
             }
 
