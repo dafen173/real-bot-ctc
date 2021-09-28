@@ -87,131 +87,62 @@ bot.on('message', msg => {
             })
             break
         case kb.screen.w16on9:
-            bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)  
-                       
-            /* function test(param1, param2) {
-                console.log(param1.text + param2)
-            }  */        
-            /* const handler23 = function(msg){
-                test(msg, 777) 
-            }  */            
+            bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)            
                
-            const handler23 = (msg) => {
-                
-                //screenCalculation(msg, 1.77777, 'width')               
-                
+            const w16on9Handler = (msg) => {               
                 if (Number(msg.text) && Number(msg.text) > 0) {
                     screenCalculation(msg, 1.77777, 'width')
                 }
-                /* if (!Number(msg.text) || Number(msg.text) <= 0) {
-                    bot.removeListener('message', handler23);
-                    //bot.addEventListener('message', handler23) 
-                    console.log('yyyyoooooooooooo')                     
-                }  */
-<<<<<<< HEAD
-                else {   
-                            
-                    bot.removeListener('message', handler23)
-||||||| merged common ancestors
-                else {           
-                    //bot.removeListener('message', handler23)
-
-
-                    //console.log('REALLLLLLokkkkkk') 
-                    //msg.text = kb.screen.w16on9
+                else if (msg.text === kb.back || msg.text === kb.screen.h16to9) {
+                    bot.removeListener('message', w16on9Handler)
+                }
+                else {                             
+                    bot.removeListener('message', w16on9Handler)
                     bot.sendMessage(chatId, `Выберите команду для начала работы:`, {
                         reply_markup: {keyboard: keyboard.home}
-                    })
+                    })                   
                 }  
             }
+            
+            bot.on('message', w16on9Handler)           
+            break
 
-            //bot.on('message', msg => {screenCalculation(msg, 1.77777, 'width')}) 
-            bot.on('message', handler23) 
-
-            /* if (Number(msg.text) < 0) {           
-                bot.removeListener('message', msg => {screenCalculation(msg, 1.77777, 'width')});
-                console.log('tttttttttttttttttt')
-            }   */
-
-            /* const handler23 = (msg) => {
-                const input = Number(msg.text)                
-                const sideFromInput = Math.round(input / 1.777777777)  
-                const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
-                const inputInInches = Math.round(input / 2.54)
-                const sideFromInputInInches = Math.round(sideFromInput / 2.54)
-                const diagonalInInches = Math.round(diagonal / 2.54)
-                const answer = `${input} x ${sideFromInput} см - ширина и высота экрана, формат 16:9
-                                \n${diagonal} см - диагональ экрана
-                                \n${inputInInches} x ${sideFromInputInInches} дюймов - ширина и высота экрана, формат 16:9
-                                \n${diagonalInInches} дюймов - диагональ экрана`                             
-                                
-                if (input && input > 0) {
-                    bot.sendMessage(chatId, answer)                         
-                } 
-                else {           
-                    bot.removeListener('message', handler23);
+        case kb.screen.h16to9:
+            bot.sendMessage(chatId, `Укажите высоту в сантиметрах`)
+            
+            const h16on9Handler = (msg) => {               
+                if (Number(msg.text) && Number(msg.text) > 0) {
+                    screenCalculation(msg, 1.77777, 'height')
                 }
+                else if (msg.text === kb.back || msg.text === kb.screen.w16on9) {
+                    bot.removeListener('message', h16on9Handler)
+                }
+                else {                             
+                    bot.removeListener('message', h16on9Handler)
+                    bot.sendMessage(chatId, `Выберите команду для начала работы:`, {
+                        reply_markup: {keyboard: keyboard.home}
+                    })                   
+                }  
             }
             
-            bot.on('message', handler23)
-             */
-            
+            bot.on('message', h16on9Handler)  
 
-            
-            //screenCalculation (msg, 1.77777, 'width')
-            
-        break
-        
+            break
         
         case kb.back:
             bot.sendMessage(chatId, `Выберите команду для начала работы:`, {
                 reply_markup: {keyboard: keyboard.home}
             })
             break
-
-
-
-
-
-
-
-        case kb.home.favourite:
-            showFavouriteFilms(chatId, msg.from.id)
-            break          
-        case kb.film.comedy:
-            sendFilmByQuery(chatId, {type: 'comedy'})
-            break
-        case kb.film.action:
-            sendFilmByQuery(chatId, {type: 'action'})
-            break
-        case kb.film.random:
-            sendFilmByQuery(chatId, {})
-            break
-        case kb.home.cinemas:
-            bot.sendMessage(chatId, `Отправить местоположение`, {
-                reply_markup: {
-                    keyboard: keyboard.cinemas
-                }
-            })
-            break
-
-    }
-
-    if (msg.location) {
-        //console.log(msg.location)
-        getCinemasInCoord(chatId, msg.location)
     }
 })
 
 
-
 bot.on("polling_error", (err) => console.log(err))
-
 bot.on("error", (err) => console.log(err))
 
 
 bot.onText(/\/start/, msg => {
-
     const text = `Здраствуйте, ${msg.from.first_name}\nВыберите команду для начала работы: `
 
     bot.sendMessage(helper.getChatId(msg), text, {

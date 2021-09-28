@@ -17,6 +17,34 @@ module.exports = {
 //=======================================================================================================
 
 
+/* 
+const handler23 = (msg) => {
+                const input = Number(msg.text)                
+                const sideFromInput = Math.round(input / 1.777777777)  
+                const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
+                const inputInInches = Math.round(input / 2.54)
+                const sideFromInputInInches = Math.round(sideFromInput / 2.54)
+                const diagonalInInches = Math.round(diagonal / 2.54)
+                const answer = `${input} x ${sideFromInput} см - ширина и высота экрана, формат 16:9
+                                \n${diagonal} см - диагональ экрана
+                                \n${inputInInches} x ${sideFromInputInInches} дюймов - ширина и высота экрана, формат 16:9
+                                \n${diagonalInInches} дюймов - диагональ экрана`                             
+                                
+                if (input && input > 0) {
+                    bot.sendMessage(chatId, answer)                         
+                } 
+                else {           
+                    bot.removeListener('message', handler23);
+                }
+            }
+            
+        break
+*/
+
+
+
+
+
 /*
 Procfile:
 worker: npm start
