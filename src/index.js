@@ -88,30 +88,35 @@ bot.on('message', msg => {
         case kb.screen.w16on9:
             bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)            
 
+            
+
+
             const w16on9Handler = (msg) => {                   
 
-                if (Number(msg.text) && Number(msg.text) > 0) {
+                //checkInput(msg, aspectRatio, howSideInput, caseName, handlerName)
+                checkInput(msg, 1.77777, 'width', kb.screen.w16on9, w16on9Handler)
+                /* if (Number(msg.text) && Number(msg.text) > 0) {
                     screenCalculation(msg, 1.77777, 'width')
-                }
+                } */
+
                 /* else if (msg.text === kb.back || msg.text === kb.screen.h16to9) {
                     bot.removeListener('message', w16on9Handler)
                 } */
 
-                else if (  (Object.values(kb.screen).indexOf(msg.text) > -1) && (msg.text !== kb.screen.w16on9)  ) {
+                /* else if (  (Object.values(kb.screen).indexOf(msg.text) > -1) && (msg.text !== kb.screen.w16on9)  ) {
                     bot.removeListener('message', w16on9Handler)
                     //console.log('yyyooooooooo')
-                }
+                } */
 
-                else if (msg.text === kb.back) {
+                /* else if (msg.text === kb.back) {
                     bot.removeListener('message', w16on9Handler)
                 }
-
                 else {                             
                     bot.removeListener('message', w16on9Handler)
                     bot.sendMessage(chatId, `Выберите команду для начала работы:`, {
                         reply_markup: {keyboard: keyboard.home}
                     })                   
-                }  
+                }  */ 
             }
             
             bot.on('message', w16on9Handler)           
@@ -127,6 +132,8 @@ bot.on('message', msg => {
                 else if (msg.text === kb.back || msg.text === kb.screen.w16on9) {
                     bot.removeListener('message', h16on9Handler)
                 }
+
+
                 else {                             
                     bot.removeListener('message', h16on9Handler)
                     bot.sendMessage(chatId, `Выберите команду для начала работы:`, {
@@ -417,7 +424,24 @@ function sendCinemasByQuery (userId, query) {
     })
 }
 
+function checkInput(msg, aspectRatio, howSideInput, caseName, handlerName) {
+    const chatId = helper.getChatId(msg)
 
+    if (Number(msg.text) && Number(msg.text) > 0) {
+        screenCalculation(msg, aspectRatio, howSideInput)
+    }
+    else if (Object.values(kb.screen).indexOf(msg.text) > -1) {
+        bot.removeListener('message', handlerName)
+        console.log(`not match ${caseName}`)
+    }
+    else if (msg.text === kb.back) {
+        bot.removeListener('message', handlerName)
+        console.log(`not match ${caseName}`)
+    }
+    else {   
+        bot.sendMessage(chatId, `Вводите данные только в цифрах`)                                          
+    } 
+}
 
 function screenCalculation (msg, aspectRatio, howSideInput) {
     const input = Number(msg.text)    
