@@ -3,7 +3,7 @@
 require('dotenv').config()
 
 const TelegramBot = require('node-telegram-bot-api')
-const mongoose = require('mongoose')
+//const mongoose = require('mongoose')
 const geolib = require('geolib')
 const _ = require('lodash')
 const config = require('./config')
@@ -11,7 +11,6 @@ const helper = require('./helper')
 const keyboard = require('./keyboard')
 const kb = require('./keyboard-buttons')
 const database = require('../database.json')
-
 
 
 helper.logStart()
@@ -88,14 +87,25 @@ bot.on('message', msg => {
             break
         case kb.screen.w16on9:
             bot.sendMessage(chatId, `Укажите ширину в сантиметрах`)            
-               
-            const w16on9Handler = (msg) => {               
+
+            const w16on9Handler = (msg) => {                   
+
                 if (Number(msg.text) && Number(msg.text) > 0) {
                     screenCalculation(msg, 1.77777, 'width')
                 }
-                else if (msg.text === kb.back || msg.text === kb.screen.h16to9) {
+                /* else if (msg.text === kb.back || msg.text === kb.screen.h16to9) {
+                    bot.removeListener('message', w16on9Handler)
+                } */
+
+                else if (  (Object.values(kb.screen).indexOf(msg.text) > -1) && (msg.text !== kb.screen.w16on9)  ) {
+                    bot.removeListener('message', w16on9Handler)
+                    //console.log('yyyooooooooo')
+                }
+
+                else if (msg.text === kb.back) {
                     bot.removeListener('message', w16on9Handler)
                 }
+
                 else {                             
                     bot.removeListener('message', w16on9Handler)
                     bot.sendMessage(chatId, `Выберите команду для начала работы:`, {
