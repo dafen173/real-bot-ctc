@@ -37,6 +37,7 @@ const COEF16TO10 = 1.6
 const COEF21TO9 = 2.35
 const WIDTH = 'width'
 const HEIGHT = 'height'
+const DIAGONAL_INPUT = 'diagonalInput'
 
 const ACTION_TYPE = {
     TOGGLE_FAV_FILM: 'tff',
@@ -421,9 +422,20 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
     const input = Number(msg.text)    
     const chatId = helper.getChatId(msg)
 
-    if (howSideInput === 'width') {
-        const sideFromInput = Math.round(input / aspectRatio) 
-        const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
+    let sideFromInput
+
+    const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
+    const inputInInches = Math.round(input / 2.54)
+    const sideFromInputInInches = Math.round(sideFromInput / 2.54)
+    const diagonalInInches = Math.round(diagonal / 2.54)
+    let answer = `${input} x ${sideFromInput} см - ширина и высота экрана, формат ${formatOfscreen}
+                    \n${diagonal} см - диагональ экрана
+                    \n${inputInInches} x ${sideFromInputInInches} дюймов - ширина и высота экрана, формат ${formatOfscreen}
+                    \n${diagonalInInches} дюймов - диагональ экрана`                                              
+        
+    if (howSideInput === WIDTH) {
+        sideFromInput = Math.round(input / aspectRatio) 
+        /* const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
         const inputInInches = Math.round(input / 2.54)
         const sideFromInputInInches = Math.round(sideFromInput / 2.54)
         const diagonalInInches = Math.round(diagonal / 2.54)
@@ -433,12 +445,12 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
                         \n${diagonalInInches} дюймов - диагональ экрана`                                              
         
         if (input && input > 0) {
-            bot.sendMessage(chatId, answer)                         
-        } 
-
-    } else if (howSideInput === 'height') {
+            bot.sendMessage(chatId, answer) 
+        }
+        */                        
+    } else if (howSideInput === HEIGHT) {
         const sideFromInput = Math.round(input * aspectRatio)  
-        const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
+        /* const diagonal = Math.round(Math.sqrt(Math.pow(input, 2) + Math.pow(sideFromInput, 2)))
         const inputInInches = Math.round(input / 2.54)
         const sideFromInputInInches = Math.round(sideFromInput / 2.54)
         const diagonalInInches = Math.round(diagonal / 2.54)
@@ -446,37 +458,33 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
                         \n${diagonal} см - диагональ экрана
                         \n${sideFromInputInInches} x ${inputInInches} дюймов - ширина и высота экрана, формат ${formatOfscreen}
                         \n${diagonalInInches} дюймов - диагональ экрана`                                                
-        
-
         if (input && input > 0) {
             bot.sendMessage(chatId, answer)                         
-        }        
+        }   */      
 
-    } else if (howSideInput === 'diagonalInput') {
-
+    } else if (howSideInput === DIAGONAL_INPUT) {
         const widthFromInput = Math.round(Math.sqrt(Math.pow(input, 2) * Math.pow(aspectRatio, 2) / (Math.pow(aspectRatio, 2) + 1)))
-        const heigtFromWidth = Math.round(widthFromInput / aspectRatio) 
-        
+        const heigtFromWidth = Math.round(widthFromInput / aspectRatio)       
         const diagonalInInches = Math.round(input / 2.54)
         const widthFromInputInInches = Math.round(widthFromInput / 2.54)
         const heigtFromWidthInInches = Math.round(heigtFromWidth / 2.54)
-
-        const answer = `${widthFromInput} x ${heigtFromWidth} см - ширина и высота экрана, формат ${formatOfscreen}
+        answer = `${widthFromInput} x ${heigtFromWidth} см - ширина и высота экрана, формат ${formatOfscreen}
                         \n${input} см - диагональ экрана
                         \n${widthFromInputInInches} x ${heigtFromWidthInInches} дюймов - ширина и высота экрана, формат ${formatOfscreen}
                         \n${diagonalInInches} дюймов - диагональ экрана`                                                
 
-        if (input && input > 0) {
+        /* if (input && input > 0) {
             bot.sendMessage(chatId, answer)                         
-        } 
+        }  */
 
     } else {
         console.log('Введите одно из трех значений: width или height, или diagonalInput')
     }
+
+    if (input && input > 0) {
+        bot.sendMessage(chatId, answer)                         
+    }
 }
-
-
-
 
 
 
