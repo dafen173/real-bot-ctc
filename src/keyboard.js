@@ -9,7 +9,7 @@ module.exports = {
         //[kb.home.films, kb.home.cinemas]
     ],
     screens: [
-        [kb.screen.w16on9],
+        [kb.screen.w16to9],
         [kb.screen.h16to9],
         [kb.screen.w16to10],
         [kb.screen.h16to10],
