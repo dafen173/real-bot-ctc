@@ -137,6 +137,15 @@ bot.on('message', msg => {
                 reply_markup: {keyboard: keyboard.home}
             })
             break
+
+
+        case kb.home.contacts:
+            bot.sendMessage(chatId, config.CONTACTS_ANSWER)
+            break
+        case kb.home.arrival:
+            bot.sendMessage(chatId, config.ARRIVAL_ANSWER )
+            break
+
     }
 })
 
