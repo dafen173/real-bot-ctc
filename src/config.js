@@ -49,6 +49,24 @@ module.exports = {
                     \nMX DAC
                     \nMX Vynil
                     \nMX Vynil
+                    `,
+    REVIEW_ANSWER: `Triangle Borea BR09 - Колонки на всю жизнь: напольная акустика Triangle Borea BR09 - Обзор М. Борзенкова:
+                    \nhttps://www.youtube.com/watch?v=6zAPVak9CwU
+                    \n
+                    \nTriangle AIO Connect и AIO 3 - Беспроводная мультирумная акустическая система Triangle AIO 3 и сетевой плеер Triangle AIO Connect - Обзор М. Борзенкова:
+                    \nhttps://www.youtube.com/watch?v=6iINJm2FrwY
+                    \n
+                    \nTriangle Antal 40th - Акустическая система Triangle Antal 40th и как ее правильно слушать - Обзор М. Борзенкова:
+                    \nhttps://www.youtube.com/watch?v=EApMpm3T5tk
+                    \n
+                    \nTriangle Australe EZ - Акустическая система Triangle Australe EZ - Обзор М. Борзенкова:
+                    \nhttps://www.youtube.com/watch?v=DFyunf60byQ
+                    \n
+                    \nMusical Fidelity M6s PRE и PRX - Новые старые усилители Musical Fidelity M6s PRE и PRX - Обзор М. Борзенкова:
+                    \nhttps://www.youtube.com/watch?v=yO3NFWg4k2A&t=4s
+                    \n
+                    \nMusical Fidelity M8XI - Лучшая аудиотехника года: EISA Hi-Fi Awards 2020-2021 - Обзор М. Борзенкова:
+                    \nhttps://www.youtube.com/watch?v=eScd1txg0V4
                     `
 }
 

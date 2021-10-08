@@ -18,12 +18,12 @@ module.exports = {
         [kb.screen.d21to9],
         [kb.back]
     ],
-    films: [
+    /* films: [
         [kb.film.random],
         [kb.film.action, kb.film.comedy],
         [kb.back]
-    ],
-    cinemas:[
+    ], */
+    /* cinemas:[
         [
             {
                 text: 'Отправить местоположение',
@@ -33,7 +33,7 @@ module.exports = {
         [
             kb.back
         ]
-    ]
+    ] */
 
 }
 

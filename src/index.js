@@ -25,24 +25,17 @@ const INPUT_WIDTH_SM = `Укажите ширину в сантиметрах`
 const INPUT_HEIGHT_SM = `Укажите высоту в сантиметрах`
 const INPUT_DIADONAL_INCHES = `Укажите диагональ в дюймах`
 
-/* const ACTION_TYPE = {
-    TOGGLE_FAV_FILM: 'tff',
-    SHOW_CINEMAS: 'sc',
-    SHOW_CINEMAS_MAP: 'scm',
-    SHOW_FILMS: 'sf'
-} */
-
 // =========================================================================
 
-const bot = new TelegramBot (config.TOKEN, {
+/* const bot = new TelegramBot (config.TOKEN, {
     polling: true
-})
+}) */
 
-/*
+
 const bot = new TelegramBot (process.env.BOT_TOKEN, {
     polling: true
 })
-*/
+
 
 bot.on('message', msg => {
     const chatId = helper.getChatId(msg)
@@ -143,9 +136,11 @@ bot.on('message', msg => {
             bot.sendMessage(chatId, config.CONTACTS_ANSWER)
             break
         case kb.home.arrival:
-            bot.sendMessage(chatId, config.ARRIVAL_ANSWER )
+            bot.sendMessage(chatId, config.ARRIVAL_ANSWER)
             break
-
+        case kb.home.review:
+            bot.sendMessage(chatId, config.REVIEW_ANSWER)
+            break
     }
 })
 
@@ -244,7 +239,6 @@ function screenCalculation (msg, aspectRatio, howSideInput) {
         bot.sendMessage(chatId, answer) 
     }
 }
-
 
 
 /* 
