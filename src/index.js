@@ -42,7 +42,9 @@ bot.on('message', msg => {
 
     switch (msg.text) {
         case kb.home.rate:
-            bot.sendMessage(chatId, config.EXCHANGE_RATE)
+            //bot.sendMessage(chatId, config.EXCHANGE_RATE)
+            const now = new Date().toLocaleString()
+            bot.sendMessage(chatId, now)
             break
         case kb.home.price:
             bot.sendMessage(chatId, `Ссылка для скачивания прайса\n 
