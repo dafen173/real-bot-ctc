@@ -24,7 +24,7 @@ module.exports = {
                     \nMX Vynil
                     \nMX Vynil
                     \n
-                    Экраны EliteScreens ожидаем к 12.10.21 - ГРУЗ ПРИЕХАЛ
+                    \nЭкраны EliteScreens ожидаем к 12.10.21 - ГРУЗ ПРИЕХАЛ
                     \nITE106HW3-E24
                     \nITE120HW3-E20
                     \nITE135HW3-E12
