@@ -1,6 +1,5 @@
 module.exports = {
     TOKEN: '1860414673:AAEV7oeJWq9LC6gYpw5jcZN4DfC_uPU44Dg',  //real token
-    //DB_URL: 'mongodb://localhost/wfmcinema',
     EXCHANGE_RATE: '27.2',
     CONTACTS_ANSWER: `Mob: +38 (068) 528-19-22
                 \nViber: +38 (097) 469-87-57
@@ -11,7 +10,21 @@ module.exports = {
                 \nhttps://twitter.com/CapitalCtc
                 \nhttp://www.ctccapital.ua
                 \nhttp://www.avscreen.com.ua/`,
-    ARRIVAL_ANSWER: `Экраны EliteScreens ожидаем к 12.10.21
+    ARRIVAL_ANSWER: `\nMusical Fidelity ожидаем к 21.10.21
+                    \nM3Si
+                    \nM6Si
+                    \nM5Si
+                    \nM5Si
+                    \nV90 DAC
+                    \nV90 DAC
+                    \nLX2 LPS
+                    \nLX2 LPS
+                    \nMXDAC
+                    \nMX DAC
+                    \nMX Vynil
+                    \nMX Vynil
+                    \n
+                    Экраны EliteScreens ожидаем к 12.10.21 - ГРУЗ ПРИЕХАЛ
                     \nITE106HW3-E24
                     \nITE120HW3-E20
                     \nITE135HW3-E12
@@ -28,7 +41,7 @@ module.exports = {
                     \nER150WH1
                     \nOMS135H2-DUAL
                     \n
-                    \nКрепежи Sunne ожидаем к 12.10.21
+                    \nКрепежи Sunne ожидаем к 12.10.21 - ГРУЗ ПРИЕХАЛ
                     \nPRO02
                     \nPRO02S
                     \nPRO300S
@@ -36,19 +49,6 @@ module.exports = {
                     \nPRO300L
                     \nPRO300XL
                     \n
-                    \nMusical Fidelity ожидаем к 12.10.21
-                    \nM3Si
-                    \nM6Si
-                    \nM5Si
-                    \nM5Si
-                    \nV90 DAC
-                    \nV90 DAC
-                    \nLX2 LPS
-                    \nLX2 LPS
-                    \nMXDAC
-                    \nMX DAC
-                    \nMX Vynil
-                    \nMX Vynil
                     `,
     REVIEW_ANSWER: `Triangle Borea BR09 - Колонки на всю жизнь: напольная акустика Triangle Borea BR09 - Обзор М. Борзенкова:
                     \nhttps://www.youtube.com/watch?v=6zAPVak9CwU
