@@ -10,7 +10,7 @@ module.exports = {
                 \nhttps://twitter.com/CapitalCtc
                 \nhttp://www.ctccapital.ua
                 \nhttp://www.avscreen.com.ua/`,
-    ARRIVAL_ANSWER: `\nMusical Fidelity ожидаем к 21.10.21
+    ARRIVAL_ANSWER: `\nMusical Fidelity ожидаем к 21.10.21 - ГРУЗ ПРИЕХАЛ
                     \nM3Si
                     \nM6Si
                     \nM5Si
