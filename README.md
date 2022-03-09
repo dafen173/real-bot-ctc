@@ -1,4 +1,4 @@
 ## Telegram bot CTC
 
 
-[Demo](@CTC_Capital_bot) | [Codebase](https://github.com/dafen173/real-bot-ctc/tree/master)
+[Demo](https://web.telegram.org/z/#1860414673) | [Codebase](https://github.com/dafen173/real-bot-ctc/tree/master)
