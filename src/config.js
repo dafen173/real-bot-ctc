@@ -1,5 +1,5 @@
 module.exports = {
-    TOKEN: '1860414673:AAEV7oeJWq9LC6gYpw5jcZN4DfC_uPU44Dg',  //real token
+    TOKEN: '',  //real token
     EXCHANGE_RATE: '33.0',
     CONTACTS_ANSWER: `Mob: +38 (068) 528-19-22
                 \nViber: +38 (097) 469-87-57
