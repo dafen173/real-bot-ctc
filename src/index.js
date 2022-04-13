@@ -32,7 +32,7 @@ const INPUT_DIADONAL_INCHES = `Укажите диагональ в дюймах
 }) */
 
 
-const bot = new TelegramBot (process.env.BOT_, {
+const bot = new TelegramBot (process.env.BOT_TOKEN, {
     polling: true
 })
 
