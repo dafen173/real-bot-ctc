@@ -1,6 +1,6 @@
 module.exports = {
     TOKEN: '',  //real token
-    EXCHANGE_RATE: '37.0',
+    EXCHANGE_RATE: '39.5',
     CONTACTS_ANSWER: `Mob: +38 (068) 528-19-22
                 \nViber: +38 (097) 469-87-57
                 \nSkype: alexctc173
